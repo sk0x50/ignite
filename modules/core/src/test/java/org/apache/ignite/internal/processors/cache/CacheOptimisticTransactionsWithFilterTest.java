@@ -108,7 +108,7 @@ public class CacheOptimisticTransactionsWithFilterTest extends GridCommonAbstrac
 
                 IgniteCache<Integer, Integer> cache = ignite.cache(cacheName);
 
-                for (Integer key : testKeys(cache)) {
+                for (final Integer key : testKeys(cache)) {
                     for (int i = 0; i < 3; i++) {
                         for (TransactionIsolation isolation : ISOLATIONS) {
                             try (Transaction tx = ignite.transactions().txStart(OPTIMISTIC, isolation)) {
@@ -195,7 +195,7 @@ public class CacheOptimisticTransactionsWithFilterTest extends GridCommonAbstrac
 
                 IgniteCache<Integer, Integer> cache = ignite.cache(cacheName);
 
-                for (Integer key : testKeys(cache)) {
+                for (final Integer key : testKeys(cache)) {
                     for (int i = 0; i < 3; i++) {
                         for (TransactionIsolation isolation : ISOLATIONS) {
                             try (Transaction tx = ignite.transactions().txStart(OPTIMISTIC, isolation)) {
@@ -254,7 +254,7 @@ public class CacheOptimisticTransactionsWithFilterTest extends GridCommonAbstrac
 
                 IgniteCache<Integer, Integer> cache = ignite.cache(cacheName);
 
-                for (Integer key : testKeys(cache)) {
+                for (final Integer key : testKeys(cache)) {
                     for (int i = 0; i < 3; i++) {
                         for (TransactionIsolation isolation : ISOLATIONS) {
                             try (Transaction tx = ignite.transactions().txStart(OPTIMISTIC, isolation)) {
@@ -313,7 +313,7 @@ public class CacheOptimisticTransactionsWithFilterTest extends GridCommonAbstrac
 
                 IgniteCache<Integer, Integer> cache = ignite.cache(cacheName);
 
-                for (Integer key : testKeys(cache)) {
+                for (final Integer key : testKeys(cache)) {
                     for (int i = 0; i < 3; i++) {
                         for (TransactionIsolation isolation : ISOLATIONS) {
                             try (Transaction tx = ignite.transactions().txStart(OPTIMISTIC, isolation)) {
