@@ -20,6 +20,7 @@ package org.apache.ignite.examples;
 import org.apache.ignite.IgniteException;
 import org.apache.ignite.Ignition;
 
+import static java.lang.System.out;
 /**
  * Starts up an empty node with example compute configuration.
  */
@@ -31,6 +32,29 @@ public class ExampleNodeStartup {
      * @throws IgniteException If failed.
      */
     public static void main(String[] args) throws IgniteException {
-        Ignition.start("examples/config/example-ignite.xml");
+        //Ignition.start("examples/config/example-ignite.xml");
+
+        final int numOfFields = 8_000;
+
+        out.println("public class EightThIndices {");
+
+        // fields
+        for (int i = 0; i < numOfFields; ++i) {
+            String fieldName = "intField_" + Integer.toString(i);
+
+            out.println("\t@QuerySqlField (index = true)");
+            out.println("\tprivate int " + fieldName + ";");
+            out.println();
+        }
+
+        // constructor
+        out.println("\tpublic EightThIndices(int rnd) {");
+        for (int i = 0; i < numOfFields; ++i) {
+            String fieldName = "intField_" + Integer.toString(i);
+            out.println("\t\tthis." + fieldName + " = rnd++;");
+        }
+        out.println("\t}");
+
+        // methods
     }
 }
