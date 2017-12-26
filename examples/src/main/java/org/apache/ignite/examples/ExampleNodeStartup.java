@@ -51,7 +51,7 @@ public class ExampleNodeStartup {
         out.println("\tpublic EightThIndices(int rnd) {");
         for (int i = 0; i < numOfFields; ++i) {
             String fieldName = "intField_" + Integer.toString(i);
-            out.println("\t\tthis." + fieldName + " = rnd++;");
+            out.println("\t\tthis." + fieldName + " = rnd;");
         }
         out.println("\t}");
 
